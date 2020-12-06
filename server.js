@@ -4,9 +4,9 @@ const Web3 = require('web3');
 const config = require('./config.json');
 
 const walletPrivateKey = process.env.walletPrivateKey;
-const web3 = new Web3('https://mainnet.infura.io/v3/_your_api_key_here_');
+const web3 = new Web3('https://ropsten.infura.io/v3/5c19088a9f804202b4fe954c029de555');
 
-web3.eth.accounts.wallet.add(walletPrivateKey);
+web3.eth.accounts.wallet.add('0xb8c1b5c1d81f9475fdf2e334517d29f733bdfa40682207571b12fc1142cbf329');//('');
 const myWalletAddress = web3.eth.accounts.wallet[0].address;
 
 const cEthAddress = config.cEthAddress;
@@ -14,7 +14,7 @@ const cEthAbi = config.cEthAbi;
 const cEthContract = new web3.eth.Contract(cEthAbi, cEthAddress);
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
